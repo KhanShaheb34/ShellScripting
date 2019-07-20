@@ -1,8 +1,15 @@
 #!/bin/bash
 
 git status
-echo -n "Commit Message: "
-read COMMIT_MESSAGE
+
+if ["$#" -gt "0"]
+then
+        COMMIT_MESSAGE = $0
+else
+	echo -n "Commit Message: "
+        read COMMIT_MESSAGE
+fi
+
 echo "Adding everything..."
 git add .
 echo "Commiting \"$COMMIT_MESSAGE\""...
